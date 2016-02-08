@@ -19,5 +19,13 @@ Start the GraphQL server:
 
 Send queries to GraphQL server:
 
-    curl -XPOST http://localhost:8080/graphql -H 'Content-Type: application/graphql' -d 'query Root{ latestPost }'
-    curl -XPOST http://localhost:8080/graphql -H 'Content-Type: application/graphql' -d '{ latestPost }'
+    #curl -XPOST http://localhost:8080/graphql -H 'Content-Type: application/graphql' -d 'query Root{ latestPost }'
+    #curl -XPOST http://localhost:8080/graphql -H 'Content-Type: application/graphql' -d '{ latestPost }'
+
+    curl -XPOST http://localhost:8080/graphql -H 'Content-Type: application/graphql' -d '{Vehicle(id:"2") { name, state }}'
+
+
+Get the schema meta-data
+
+    curl -XPOST http://localhost:8080/graphql -H 'Content-Type: application/graphql' -d '{__schema { queryType { name, fields {name, description }}}}'
+
